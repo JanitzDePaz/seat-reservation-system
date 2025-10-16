@@ -4,11 +4,11 @@ type claimSchem = {
     chairIds: string[],
     nombre: string,
     apellido: string,
-    DNI: string
+    mail: string
     close: ()=> void
 }
 
-export default async function claimSeats({chairIds, nombre, apellido, DNI, close} : claimSchem){
+export default async function claimSeats({chairIds, nombre, apellido, mail, close} : claimSchem){
     const response = await fetch("http://localhost:4000/claim",{
         method: "POST",
         headers: {"Content-Type" : "application/json"},
@@ -16,7 +16,7 @@ export default async function claimSeats({chairIds, nombre, apellido, DNI, close
             chairIds: chairIds,
             Nombre: nombre,
             Apellido: apellido,
-            DNI: DNI,
+            mail: mail,
             ocupado: false
         })
 

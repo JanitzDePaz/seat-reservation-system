@@ -2,7 +2,9 @@
 
 Welcome! This project is a **simple yet functional system** for selecting and reserving seats using a **React frontend** connected to a **Node.js + MongoDB backend**.  
 
-The idea is straightforward: choose one or multiple seats, provide your **first name, last name and DNI**, and save your reservation directly to the database.
+⚠️ **Note:** This is my **first project involving a backend and database**, so there might be some rough edges or suboptimal implementations.
+
+The idea is straightforward: choose one or multiple seats, provide your **first name, last name and Email**, and save your reservation directly to the database.
 
 ---
 
@@ -18,7 +20,7 @@ The idea is straightforward: choose one or multiple seats, provide your **first 
 Once you’ve chosen your seats, a form appears asking for:  
 - **First Name**  
 - **Last Name**  
-- **DNI**
+- **Email**
 
 ### 3. Reserve
 - Click **Next** to send your data to the backend.  
@@ -45,7 +47,7 @@ It then uses `updateMany` in MongoDB to:
 
 Future improvements
 
-- **Add form validation** to prevent incorrect input.  
+- **Add form validation** email less.  
 - **Upgrade the UI** for a more modern look and feel.  
 - **Change the seat pattern** for better visualization.  
 - **Translate the code to English** for consistency.  

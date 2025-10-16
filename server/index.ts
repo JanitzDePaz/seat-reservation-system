@@ -31,8 +31,8 @@ app.listen(puerto, () => {
     console.log(`Servidor escuchando en http://localhost:${puerto}`);
 });
 
-import chairState from "./api/chairState.ts";
-chairState()
+import seatState from "./api/seatState.ts";
+seatState()
 
 import claimSeats from "./api/claimSeats.ts";
 claimSeats()
