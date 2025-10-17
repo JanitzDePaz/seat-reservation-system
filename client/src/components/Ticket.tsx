@@ -10,7 +10,7 @@ type seatData = {
 export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieImage, movieTitle}: seatData) {
   return (
      <svg
-      className="w-[90%] min-h-[10vh] h-[13vh]"
+      className=" w-[90%] min-h-[15vh] h-[15vh]"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 600 220"
       role="img"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import seatsStatus from '../api/SeatsStatus';
 import SeatsForm from './SeatsForm';
-import Ticket from './ticket';
+import Ticket from './Ticket';
 type Seat = {
   _id: string;
   seatNum: number;
@@ -13,17 +13,18 @@ export default function Seats() {
   const [seats, setSeats] = useState<Seat[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<Seat[]>([]);
   const [activeForm, setActiveForm] = useState(false);
-
+  
   const loadSeats = async () => {
     const seatData = await seatsStatus();
     setSeats(seatData);
   };
 
   useEffect(() => {
+    setSelectedSeats([]);
     loadSeats();
   }, []);
 
-  const btnStyle = 'w-[40vw] h-[5vh]  md:w-[10vw] self-center rounded-xl border-[1px] border-[#00FFFF] text-white font-bold';
+  const btnStyle = 'w-[30vw] h-[5vh]  lg:w-[20vw] self-center rounded-xl border-[1px] border-[#00FFFF] text-white font-bold';
   const largeText = "md:text-[1rem] lg:text-[1.2rem] xl:text-[1.3rem] 2xl:text-[1.5rem]";
   const mediumText = "md:text-[0.6rem] lg:text-[0.8rem] xl:text-[1rem] 2xl:text-[1.2rem]";
   const smallText = "md:text-[0.4rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-[0.8rem]";
@@ -111,12 +112,13 @@ export default function Seats() {
         {activeForm && (
           <SeatsForm
             selectedSeats={selectedSeats}
+            resetSelectedSeats={() => setSelectedSeats([])}
             close={() => setActiveForm(false)}
             refreshState={loadSeats}
           />
         )}
       </section>
-      <section className="hidden lg:flex flex-col items-center gap-5 w-[20vw] h-[70vh] border-2 border-blue-500 rounded-2xl bg-[#252525c4] overflow-auto">
+      <section className="hidden gap-5 lg:flex flex-col items-center w-[20vw] h-[70vh] border-2 border-blue-500 rounded-2xl bg-[#252525c4] overflow-auto">
         <h1 className={`${largeText} text-white mt-5`}>Tickets</h1>
         {selectedSeats.map((seat: Seat, i) => {
           return (
