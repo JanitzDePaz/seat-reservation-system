@@ -2,15 +2,16 @@ type seatData = {
     ticketNum: number;
     seatNum: number;
     lineNum: number;
-    movieTitle?: string;
-    movieDate?: string;
-    movieImage?: string;
+    movieTitle: string;
+    movieDate: string;
+    movieImage: string;
+    style: string;
 }
 
-export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieImage, movieTitle}: seatData) {
+export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieImage, movieTitle, style}: seatData) {
   return (
      <svg
-      className=" w-[90%] min-h-[15vh] h-[15vh]"
+      className={style}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 600 220"
       role="img"

@@ -46,8 +46,7 @@ It then uses `updateMany` in MongoDB to:
 ---
 
 Future improvements
-
-- **Add form validation** email less.  
+ 
 - **Upgrade the UI** for a more modern look and feel.  
 - **Change the seat pattern** for better visualization.  
 - **Translate the code to English** for consistency.  

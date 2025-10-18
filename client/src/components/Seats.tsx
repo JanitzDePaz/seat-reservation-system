@@ -122,7 +122,7 @@ export default function Seats() {
         <h1 className={`${largeText} text-white mt-5`}>Tickets</h1>
         {selectedSeats.map((seat: Seat, i) => {
           return (
-              <Ticket ticketNum={i+1} seatNum={seat.seatNum} lineNum={seat.lineNum} movieDate='16/10/25' movieImage='exampleFilmImg.png' movieTitle='Titulo de la pelicula'/>
+              <Ticket ticketNum={i+1} seatNum={seat.seatNum} lineNum={seat.lineNum} movieDate='16/10/25' movieImage='exampleFilmImg.png' movieTitle='Titulo de la pelicula' style=" w-[90%] min-h-[15vh] h-[15vh]"/>
           );
         })}
       </section>
