@@ -46,7 +46,7 @@ It then uses `updateMany` in MongoDB to:
 ---
 
 Future improvements
- 
+- **Update form** add error msg for multiple fails at the same time.
 - **Upgrade the UI** for a more modern look and feel.  
 - **Change the seat pattern** for better visualization.  
 - **Translate the code to English** for consistency.  

@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { app } from "../index.ts";
-import { Console, error } from "console";
 
 const claimSchem = mongoose.model(
         "claimSchem", 
@@ -22,25 +21,36 @@ export default function claimSeats(){
             const { chairIds, name, lastName, mail} : {chairIds: string[], name: string, lastName: string, mail: string} = req.body;
             const objectIds = chairIds.map(id => new mongoose.Types.ObjectId(id));
 
+            const errorArray: string[] = [];
             if(name == "" || lastName == "" || mail == ""){
-                return res.status(400).json({ success: false, error: "Debes completar todos los campos", errorType: "errorEmpty" });
+                errorArray.push("errorEmpty");
 
-
-            }else if(!nameFormat.test(name)){
-                return res.status(400).json({ success: false, error: "El nombre no es valido", errorType: "errorName" });
+            }
             
-            }else if(!nameFormat.test(lastName)){
-                return res.status(400).json({ success: false, error: "El apellido no es valido", errorType : "errorLastName" });
+            if(!nameFormat.test(name)){
+                errorArray.push("errorName");
+            
+            }
+            
+            if(!nameFormat.test(lastName)){
+                errorArray.push("errorLastName")
 
-            }else if(!mailFormat.test(mail)){
-                return res.status(400).json({ success: false, error: "El mail no es valido", errorType: "errorMail" });
-            }else {
+            }
+            
+            if(!mailFormat.test(mail)){
+                errorArray.push("errorMail");
+            }
+            
+            if(errorArray.length < 1){
                 
                 const result = await claimSchem.updateMany(
                 { _id: { $in: objectIds } },
                 { $set: { occupied: true, name, lastName, mail } }
             );
-                res.json({success: true})
+                return res.json({success: true})
+            
+            }else {
+                return res.status(400).json({ success: false, errorType:errorArray});
             }
             
         }catch (err) {

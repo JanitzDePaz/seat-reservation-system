@@ -6,7 +6,7 @@ type claimSchem = {
     lastName: string,
     mail: string
     close: ()=> void
-    setError: (error: string) => void
+    setError: (error: string[]) => void
 }
 
 export default async function claimSeats({chairIds, name, lastName, mail, close, setError} : claimSchem){
@@ -27,6 +27,7 @@ export default async function claimSeats({chairIds, name, lastName, mail, close,
         seatsStatus()
         close()
     }else{
+        console.log(res.errorType)
         setError(res.errorType)
     }
 }
