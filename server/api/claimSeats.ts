@@ -7,7 +7,7 @@ const claimSchem = mongoose.model(
             chairIds: [],
             name: String,
             lastName: String,
-            mail: String
+            email: String
         },{strict: false}), "Seats"
 )
 
@@ -18,11 +18,11 @@ export default function claimSeats(){
 
     app.post("/claim", async  (req, res) => {
         try{
-            const { chairIds, name, lastName, mail} : {chairIds: string[], name: string, lastName: string, mail: string} = req.body;
+            const { chairIds, name, lastName, email} : {chairIds: string[], name: string, lastName: string, email: string} = req.body;
             const objectIds = chairIds.map(id => new mongoose.Types.ObjectId(id));
 
             const errorArray: string[] = [];
-            if(name == "" || lastName == "" || mail == ""){
+            if(name == "" || lastName == "" || email == ""){
                 errorArray.push("errorEmpty");
 
             }else{
@@ -35,15 +35,15 @@ export default function claimSeats(){
                     errorArray.push("errorLastName")
                 }
             
-                if(!mailFormat.test(mail)){
-                    errorArray.push("errorMail");
+                if(!mailFormat.test(email)){
+                    errorArray.push("errorEmail");
                 }
             }
             
             if(errorArray.length < 1){
                 const result = await claimSchem.updateMany(
                 { _id: { $in: objectIds } },
-                { $set: { occupied: true, name, lastName, mail } }
+                { $set: { occupied: true, name, lastName, email } }
             );
                 return res.json({success: true})
             
