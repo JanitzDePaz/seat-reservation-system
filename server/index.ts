@@ -27,12 +27,13 @@ mongoose.connect(URL)
   .catch(error => console.log(error));
 
 
-app.listen(puerto, () => {
-    console.log(`Servidor escuchando en http://localhost:${puerto}`);
-});
-
 import seatState from "./api/seatState.ts";
 seatState()
 
 import claimSeats from "./api/claimSeats.ts";
 claimSeats()
+
+
+app.listen(puerto, () => {
+    console.log(`Servidor escuchando en http://localhost:${puerto}`);
+});

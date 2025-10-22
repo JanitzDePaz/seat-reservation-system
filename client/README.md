@@ -8,6 +8,17 @@ The idea is straightforward: choose one or multiple seats, provide your **first 
 
 ---
 
+## How to use
+
+    1. Clone this project.
+    2. Install all dependencies.
+    3. Start a MongoDB instance on port :27017, with a database named "App" and a collection named "Seats".
+    4. Execute the Seed.ts script for configure the database.
+    5. Run the client with the command "npm run dev" inside the ".../client"
+    6. Run the server with the command "npx ts-node index.ts" inside the ".../server" directory.
+    
+
+
 ## 🪑 How It Works
 
 ### 1. Select Your Seats
@@ -46,10 +57,7 @@ It then uses `updateMany` in MongoDB to:
 ---
 
 Future improvements
-- **Update form** add error msg for multiple fails at the same time.
-- **Upgrade the UI** for a more modern look and feel.  
-- **Change the seat pattern** for better visualization.  
-- **Translate the code to English** for consistency.  
+- **Upgrade the UI** for a more modern look and feel.    
 - **Optimize and clean up the code** for better maintainability. 
   
 

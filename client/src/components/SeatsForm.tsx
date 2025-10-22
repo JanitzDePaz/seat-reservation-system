@@ -33,20 +33,26 @@ export default function SeatsForm({selectedSeats, close, refreshState, resetSele
                     <form className="flex flex-col align-middle gap-1 w-[80%] lg:w-[17vw] self-center items-center">
                         <label htmlFor="userName" className="text-[1rem] text-center text-white">Ingrese su nombre</label>
                         <input ref={userName} type="text" placeholder="Ej: Juan" id="userName" className="border-[#2659e4] border-2 rounded-[12px] text-center w-[85%] text-white" />
-                        {errorMsg.includes("errorName") ? <p className="text-red-500 text-sm h-20]">El nombre es incorrecto</p> : <p>a</p>}
+                        <p className="form-errors">
+                            {errorMsg.includes("errorName") ? "El nombre es incorrecto" : " "}
+                        </p>
                         
                         <label htmlFor="lastName" className="text-[1rem] text-center text-white">Ingrese su primer apellido</label>
                         <input ref={lastName} type="text" placeholder="Ej: Perez" id="lastName" className="border-[#2659e4] border-2 rounded-[12px] text-center w-[85%] text-white" />
-                        {errorMsg.includes("errorLastName") ? <p className="text-red-500 text-sm h-[1vh]">El apellido es incorrecto</p> : <p>a</p>}    
+                        <p className="form-errors">
+                            {errorMsg.includes("errorLastName") ? "El apellido es incorrecto" : " "}   
+                        </p>
 
                         <label htmlFor="mail" className="text-[1rem] text-center text-white">Ingrese su mail</label>
                         <input ref={mail} type="email" id="mail" placeholder="Ej: JuanPerez@gmail.com" className="border-[#2659e4] border-2 rounded-[12px] text-center w-[85%] text-white" />
-                        {errorMsg.includes("errorMail") ? <p className="text-red-500 text-sm h-[1vh]">El mail no es correcto</p> : <p>a</p>}
+                        <p className="form-errors">
+                            {errorMsg.includes("errorMail") ? "El mail no es correcto" : " "}
+                        </p>
                     </form>
                     <section className="hidden lg:w-[10vw] h-[25vh] overflow-y-auto lg:flex flex-col gap-4 self-center">
                         <h2 className="text-xl text-white text-center">Tus tickets</h2>
                         {selectedSeats.map((showSeat, i) => (
-                            <Ticket ticketNum={i+1} seatNum={showSeat.seatNum} lineNum={showSeat.lineNum} movieDate='16/10/25' movieImage='exampleFilmImg.png' movieTitle='Titulo de la pelicula' style="w-[100%] max-h-[6vh]"/>
+                            <Ticket ticketNum={i+1} seatNum={showSeat.seatNum} lineNum={showSeat.lineNum} movieDate='16/10/25' movieImage='exampleFilmImg.png' movieTitle='Titulo de la pelicula' style="w-[100%] min-h-[6vh] h-[6vh]" key={showSeat._id}/>
                             ))
                         }
                     </section>

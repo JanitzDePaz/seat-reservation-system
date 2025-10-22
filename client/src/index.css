@@ -8,3 +8,20 @@
   box-sizing: border-box;
   font-family: "Mona Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Noto Color Emoji;
 }
+
+
+.form-errors {
+  @apply text-red-500 text-sm h-[3vh];
+}
+
+.large-text {
+  @apply md:text-[1rem] lg:text-[1.2rem] xl:text-[1.3rem] 2xl:text-[1.5rem] text-white;
+}
+
+.medium-text {
+  @apply md:text-[0.6rem] lg:text-[0.8rem] xl:text-[1rem] 2xl:text-[1.2rem] text-white;
+}
+
+.small-text {
+  @apply md:text-[0.4rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-[0.8rem] text-white;
+}

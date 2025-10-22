@@ -8,7 +8,7 @@ const claimSchem = mongoose.model(
             name: String,
             lastName: String,
             mail: String
-        },{strict: false}), "Asientos"
+        },{strict: false}), "Seats"
 )
 
 export default function claimSeats(){
@@ -25,24 +25,22 @@ export default function claimSeats(){
             if(name == "" || lastName == "" || mail == ""){
                 errorArray.push("errorEmpty");
 
-            }
+            }else{
+                if(!nameFormat.test(name)){
+                    errorArray.push("errorName");
             
-            if(!nameFormat.test(name)){
-                errorArray.push("errorName");
+                }
             
-            }
+                if(!nameFormat.test(lastName)){
+                    errorArray.push("errorLastName")
+                }
             
-            if(!nameFormat.test(lastName)){
-                errorArray.push("errorLastName")
-
-            }
-            
-            if(!mailFormat.test(mail)){
-                errorArray.push("errorMail");
+                if(!mailFormat.test(mail)){
+                    errorArray.push("errorMail");
+                }
             }
             
             if(errorArray.length < 1){
-                
                 const result = await claimSchem.updateMany(
                 { _id: { $in: objectIds } },
                 { $set: { occupied: true, name, lastName, mail } }
