@@ -6,7 +6,7 @@
         - Backend: Node.js with Express and MongoDB.
 
 
-## How to use
+## ❓ How to use
 
     1. Clone this project.
     2. Install all dependencies.
@@ -26,7 +26,7 @@
 
 ---
 
-## Possible Improvements
+## 📈 Possible Improvements
 
 - **Upgrade the UI** for a more modern look and feel.
 - **Optimize and clean up the code** for better maintainability. 
