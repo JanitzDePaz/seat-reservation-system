@@ -5,11 +5,11 @@ import mongoose from 'mongoose';
 
 
 
-//Conectar Express
+//Conect Express
 export const app = express();
-const puerto = 4000;
+const port = 4000;
 
-
+// Configurate CORS
 app.use(cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST"],
@@ -20,13 +20,14 @@ app.use(express.json())
 
 
 
-//Conectar MongoDB
+//Conect MongoDB
 const URL = 'mongodb://localhost:27017/App';
 mongoose.connect(URL)
-  .then(() => console.log('Conectado a MongoDB'))
+  .then(() => console.log('Connecting to MongoDB'))
   .catch(error => console.log(error));
 
 
+// import the API routes and use them
 import seatState from "./api/seatState.ts";
 seatState()
 
@@ -34,6 +35,7 @@ import claimSeats from "./api/claimSeats.ts";
 claimSeats()
 
 
-app.listen(puerto, () => {
-    console.log(`Servidor escuchando en http://localhost:${puerto}`);
+
+app.listen(port, () => {
+    console.log(`Server listening at port http://localhost:${port}`);
 });

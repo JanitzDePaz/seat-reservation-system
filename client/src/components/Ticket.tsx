@@ -1,16 +1,24 @@
 type seatData = {
-    ticketNum: number;
-    seatNum: number;
-    lineNum: number;
-    movieTitle: string;
-    movieDate: string;
-    movieImage: string;
-    style: string;
-}
+  ticketNum: number;
+  seatNum: number;
+  lineNum: number;
+  movieTitle: string;
+  movieDate: string;
+  movieImage: string;
+  style: string;
+};
 
-export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieImage, movieTitle, style}: seatData) {
+export default function Ticket({
+  ticketNum,
+  seatNum,
+  lineNum,
+  movieDate,
+  movieImage,
+  movieTitle,
+  style,
+}: seatData) {
   return (
-     <svg
+    <svg
       className={style}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 600 220"
@@ -34,25 +42,43 @@ export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieIma
 
       {/* Área izquierda (info) */}
       <g transform="translate(20,20)">
-        <text x={12} y={28} className="text-small muted">CINE</text>
-        <text x={12} y={60} className="text-large">{movieTitle}</text>
-        <text x={12} y={95} className="text-small muted">FECHA</text>
-        <text x={12} y={115} className="text-medium">{movieDate}</text>
+        <text x={12} y={28} className="text-small muted">
+          CINE
+        </text>
+        <text x={12} y={60} className="text-large">
+          {movieTitle}
+        </text>
+        <text x={12} y={95} className="text-small muted">
+          FECHA
+        </text>
+        <text x={12} y={115} className="text-medium">
+          {movieDate}
+        </text>
 
         {/* Número, asiento y fila */}
         <g transform="translate(260,80)">
-          <text x={0} y={-4} className="text-small muted">NÚMERO</text>
+          <text x={0} y={-4} className="text-small muted">
+            NÚMERO
+          </text>
           <text x={0} y={18} className="text-medium">{`TICKET-${ticketNum}`}</text>
         </g>
 
         <g transform="translate(12,140)">
-          <text x={0} y={-4} className="text-small muted">ASIENTO</text>
-          <text x={0} y={18} className="text-medium">{seatNum}</text>
+          <text x={0} y={-4} className="text-small muted">
+            ASIENTO
+          </text>
+          <text x={0} y={18} className="text-medium">
+            {seatNum}
+          </text>
         </g>
 
         <g transform="translate(140,140)">
-          <text x={0} y={-4} className="text-small muted">FILA</text>
-          <text x={0} y={18} className="text-medium">{lineNum}</text>
+          <text x={0} y={-4} className="text-small muted">
+            FILA
+          </text>
+          <text x={0} y={18} className="text-medium">
+            {lineNum}
+          </text>
         </g>
       </g>
 
@@ -73,4 +99,4 @@ export default function Ticket({ticketNum, seatNum, lineNum, movieDate, movieIma
       </g>
     </svg>
   );
-} 
+}
